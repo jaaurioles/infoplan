@@ -1,0 +1,834 @@
+prompt --application/pages/page_00102
+begin
+--   Manifest
+--     PAGE: 00102
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2024.05.31'
+,p_release=>'24.1.7'
+,p_default_workspace_id=>114600926961239704
+,p_default_application_id=>118
+,p_default_id_offset=>8772153777074898
+,p_default_owner=>'EIOWNER'
+);
+wwv_flow_imp_page.create_page(
+ p_id=>102
+,p_name=>'Direccion_Administrado_Detail'
+,p_alias=>'DIRECCION-ADMINISTRADO-DETAIL'
+,p_page_mode=>'MODAL'
+,p_step_title=>'Direccion_Administrado_Detail'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_dialog_chained=>'N'
+,p_protection_level=>'C'
+,p_page_component_map=>'02'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(6336686597237693)
+,p_plug_name=>'Direccion_Administrado_Detail'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(9654987221223932377)
+,p_plug_display_sequence=>10
+,p_query_type=>'TABLE'
+,p_query_owner=>'TABLASCOMUNES'
+,p_query_table=>'DIRECCION_ADMINISTRADO'
+,p_include_rowid_column=>false
+,p_is_editable=>true
+,p_edit_operations=>'i:u:d'
+,p_lost_update_check_type=>'VALUES'
+,p_plug_source_type=>'NATIVE_FORM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(6348216505237714)
+,p_plug_name=>'Buttons'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(9654986254053932377)
+,p_plug_display_sequence=>20
+,p_plug_display_point=>'REGION_POSITION_03'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'TEXT',
+  'show_line_breaks', 'Y')).to_clob
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(6996410440568036)
+,p_plug_name=>'UTM_Administrado_Detail'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(9654987221223932377)
+,p_plug_display_sequence=>20
+,p_query_type=>'TABLE'
+,p_query_owner=>'TABLASCOMUNES'
+,p_query_table=>'UTM'
+,p_include_rowid_column=>false
+,p_is_editable=>false
+,p_plug_source_type=>'NATIVE_FORM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(6996518436568037)
+,p_plug_name=>'GNSS_Administrado_Detail'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(9654987221223932377)
+,p_plug_display_sequence=>30
+,p_query_type=>'TABLE'
+,p_query_owner=>'TABLASCOMUNES'
+,p_query_table=>'GNSS'
+,p_include_rowid_column=>false
+,p_is_editable=>false
+,p_plug_source_type=>'NATIVE_FORM'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(6348607168237715)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_imp.id(6348216505237714)
+,p_button_name=>'CANCEL'
+,p_button_action=>'DEFINED_BY_DA'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(9654896339607932416)
+,p_button_image_alt=>'Cancel'
+,p_button_position=>'CLOSE'
+,p_button_alignment=>'RIGHT'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(6350034137237718)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_imp.id(6348216505237714)
+,p_button_name=>'DELETE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(9654896339607932416)
+,p_button_image_alt=>'Delete'
+,p_button_position=>'DELETE'
+,p_button_execute_validations=>'N'
+,p_confirm_message=>'&APP_TEXT$DELETE_MSG!RAW.'
+,p_confirm_style=>'danger'
+,p_button_condition=>'P102_NUMERO_ORDEN'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_database_action=>'DELETE'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(6350412282237718)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_imp.id(6348216505237714)
+,p_button_name=>'SAVE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(9654896339607932416)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Apply Changes'
+,p_button_position=>'NEXT'
+,p_button_condition=>'P102_NUMERO_ORDEN'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_database_action=>'UPDATE'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(6350783744237718)
+,p_button_sequence=>40
+,p_button_plug_id=>wwv_flow_imp.id(6348216505237714)
+,p_button_name=>'CREATE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(9654896339607932416)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Create'
+,p_button_position=>'NEXT'
+,p_button_condition=>'P102_NUMERO_ORDEN'
+,p_button_condition_type=>'ITEM_IS_NULL'
+,p_database_action=>'INSERT'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6337031285237698)
+,p_name=>'P102_CIF_NIF'
+,p_source_data_type=>'VARCHAR2'
+,p_is_primary_key=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_item_source_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_source=>'CIF_NIF'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attribute_01=>'Y'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6337382296237702)
+,p_name=>'P102_NUMERO_ORDEN'
+,p_source_data_type=>'NUMBER'
+,p_is_primary_key=>true
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_item_source_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_source=>'NUMERO_ORDEN'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attribute_01=>'N'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6337845245237704)
+,p_name=>'P102_DOMICILIO'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_item_source_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'Domicilio'
+,p_source=>'DOMICILIO'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>150
+,p_label_alignment=>'RIGHT'
+,p_field_template=>wwv_flow_imp.id(9654897495998932413)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_03=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6338182492237705)
+,p_name=>'P102_CODIGO_POSTAL'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_item_source_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'Codigo Postal'
+,p_source=>'CODIGO_POSTAL'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>5
+,p_label_alignment=>'RIGHT'
+,p_field_template=>wwv_flow_imp.id(9654897495998932413)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_03=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6338570745237705)
+,p_name=>'P102_CODIGO_PROVINCIA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_item_source_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_prompt=>'Provincia'
+,p_source=>'CODIGO_PROVINCIA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_named_lov=>'LST_PROVINCIAS'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'select to_char(codigoprovincia) a',
+'      ,to_char(codigoprovincia)||'' ''||provincia b',
+'  from TABLASCOMUNES.PROVINCIAS ',
+'  where codigoprovincia > 0',
+'  order by provincia'))
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_imp.id(9654897495998932413)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_attribute_01=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6338948426237706)
+,p_name=>'P102_CODIGO_MUNICIPIO'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_item_source_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_prompt=>'Municipio'
+,p_source=>'CODIGO_MUNICIPIO'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov_language=>'PLSQL'
+,p_lov=>'return GET_QUERY_LIST_VALUES_MUNICIPIO(p_cod_provincia => nvl(:P102_CODIGO_PROVINCIA,30));'
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_imp.id(9654897495998932413)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_attribute_01=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6339411540237706)
+,p_name=>'P102_PERSONA_CONTACTO'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>80
+,p_item_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_item_source_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_prompt=>'Persona Contacto'
+,p_source=>'PERSONA_CONTACTO'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>80
+,p_field_template=>wwv_flow_imp.id(9654897495998932413)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6339843870237707)
+,p_name=>'P102_CODIGO_PEDANIA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_item_source_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_prompt=>unistr('Pedan\00EDa')
+,p_source=>'CODIGO_PEDANIA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov_language=>'PLSQL'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'return GET_QUERY_LIST_VALUES_PEDANIA(p_cod_provincia => nvl(:P102_CODIGO_PROVINCIA,30)',
+'                                    ,p_cod_municipio => nvl(:P102_CODIGO_MUNICIPIO,1)',
+'                                    )'))
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_imp.id(9654897495998932413)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_attribute_01=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6340202638237707)
+,p_name=>'P102_TELEFONOS'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>100
+,p_item_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_item_source_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_prompt=>'Telefonos'
+,p_source=>'TELEFONOS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>30
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_imp.id(9654897495998932413)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6340560753237707)
+,p_name=>'P102_FAX'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>110
+,p_item_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_item_source_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_prompt=>'Fax'
+,p_source=>'FAX'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>20
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_imp.id(9654897495998932413)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6341026264237708)
+,p_name=>'P102_CORREO_ELECTRONICO'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>120
+,p_item_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_item_source_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_prompt=>'Correo Electronico'
+,p_source=>'CORREO_ELECTRONICO'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>50
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_imp.id(9654897495998932413)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6341399649237708)
+,p_name=>'P102_ID_UTM'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>170
+,p_item_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_item_source_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_source=>'ID_UTM'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6341756450237708)
+,p_name=>'P102_REFERENCIA_CATASTRAL'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>140
+,p_item_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_item_source_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_prompt=>'Referencia Catastral'
+,p_source=>'REFERENCIA_CATASTRAL'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>20
+,p_field_template=>wwv_flow_imp.id(9654897495998932413)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6342232464237708)
+,p_name=>'P102_CUPS'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>150
+,p_item_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_item_source_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_prompt=>'Cups'
+,p_source=>'CUPS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>22
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_imp.id(9654897495998932413)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6342558083237709)
+,p_name=>'P102_DIRECCION_POR_DEFECTO'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>160
+,p_item_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_item_source_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_prompt=>'Direccion Por Defecto'
+,p_source=>'DIRECCION_POR_DEFECTO'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_YES_NO'
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_imp.id(9654897495998932413)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'1'
+,p_attribute_04=>'0'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6343033124237709)
+,p_name=>'P102_ID_GNSS'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>180
+,p_item_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_item_source_plug_id=>wwv_flow_imp.id(6336686597237693)
+,p_source=>'ID_GNSS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6996843586568040)
+,p_name=>'P102_ID'
+,p_source_data_type=>'NUMBER'
+,p_is_primary_key=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(6996410440568036)
+,p_item_source_plug_id=>wwv_flow_imp.id(6996410440568036)
+,p_source=>'ID'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attribute_01=>'N'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6996899633568041)
+,p_name=>'P102_X'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(6996410440568036)
+,p_item_source_plug_id=>wwv_flow_imp.id(6996410440568036)
+,p_prompt=>'X'
+,p_source=>'X'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>30
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_imp.id(9654897495998932413)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6996994801568042)
+,p_name=>'P102_Y'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_imp.id(6996410440568036)
+,p_item_source_plug_id=>wwv_flow_imp.id(6996410440568036)
+,p_prompt=>'Y'
+,p_source=>'Y'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>30
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_imp.id(9654897495998932413)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6997084708568043)
+,p_name=>'P102_CODIGO_TIPO_UTM'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(6996410440568036)
+,p_item_source_plug_id=>wwv_flow_imp.id(6996410440568036)
+,p_prompt=>'Tipo UTM'
+,p_source=>'CODIGO_TIPO_UTM'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_named_lov=>'LST_TIPO_UTM'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'select CODIGO A',
+'      ,TablasComunes.Consulta.Obtiene_tipo_UTM(CODIGO) B',
+'  from TABLASCOMUNES.TIPO_UTM'))
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_field_template=>wwv_flow_imp.id(9654897495998932413)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6997161527568044)
+,p_name=>'P102_ID_1'
+,p_source_data_type=>'NUMBER'
+,p_is_primary_key=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(6996518436568037)
+,p_item_source_plug_id=>wwv_flow_imp.id(6996518436568037)
+,p_source=>'ID'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attribute_01=>'N'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6997303558568045)
+,p_name=>'P102_X_1'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(6996518436568037)
+,p_item_source_plug_id=>wwv_flow_imp.id(6996518436568037)
+,p_prompt=>'GNSS X'
+,p_source=>'X'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>30
+,p_field_template=>wwv_flow_imp.id(9654897495998932413)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(6997410329568046)
+,p_name=>'P102_Y_1'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(6996518436568037)
+,p_item_source_plug_id=>wwv_flow_imp.id(6996518436568037)
+,p_prompt=>'GNSS Y'
+,p_source=>'Y'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>30
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_imp.id(9654897495998932413)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(6995619766568028)
+,p_validation_name=>'Validar_CUPS'
+,p_validation_sequence=>10
+,p_validation=>'tablascomunes.consulta.valida_cups(:P102_CUPS) = 1'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>unistr('El c\00F3digo de CUPS no es correcto')
+,p_associated_item=>wwv_flow_imp.id(6342232464237708)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(6995917554568031)
+,p_validation_name=>'Validar_Length_REF_CATASTRAL'
+,p_validation_sequence=>19
+,p_validation=>'length(:P102_REFERENCIA_CATASTRAL) < 20'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>unistr('El c\00F3digo &P102_REFERENCIA_CATASTRAL. tiene una longitud menor de 20 caracteres y no puede ser comprobado')
+,p_associated_item=>wwv_flow_imp.id(6341756450237708)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(6995740287568029)
+,p_validation_name=>'Validar_REF_CATASTRAL'
+,p_validation_sequence=>20
+,p_validation=>'return tablascomunes.validaciones.Valida_Referencia_Catastral(:P102_REFERENCIA_CATASTRAL);'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>unistr('El c\00F3digo de referencia catastral es incorrecto')
+,p_associated_item=>wwv_flow_imp.id(6341756450237708)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(6348708498237715)
+,p_name=>'Cancel Dialog'
+,p_event_sequence=>10
+,p_triggering_element_type=>'BUTTON'
+,p_triggering_button_id=>wwv_flow_imp.id(6348607168237715)
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'click'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(6349517552237717)
+,p_event_id=>wwv_flow_imp.id(6348708498237715)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_DIALOG_CANCEL'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(6995967830568032)
+,p_name=>'Refrescar_campo_Municipio'
+,p_event_sequence=>20
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P102_CODIGO_PROVINCIA'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(6996059337568033)
+,p_event_id=>wwv_flow_imp.id(6995967830568032)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_REFRESH'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P102_CODIGO_MUNICIPIO'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(6996223590568034)
+,p_name=>'Refrescar_campo_Pedania'
+,p_event_sequence=>30
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P102_CODIGO_MUNICIPIO'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(6996248201568035)
+,p_event_id=>wwv_flow_imp.id(6996223590568034)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_REFRESH'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P102_CODIGO_PEDANIA'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(8285106201676308)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Borrar_UTM_GNSS'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'--borramos el registro de UTM',
+'Delete',
+'  from tablascomunes.utm',
+'  where id = :P102_ID;',
+'--borramos el registro de GNSS',
+'Delete',
+'  from tablascomunes.gnss',
+'  where id = :P102_ID_1;',
+'',
+''))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(6350034137237718)
+,p_internal_uid=>17057259978751206
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(8285181131676309)
+,p_process_sequence=>20
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Avtualizar_UTM_GNSS'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'--borramos el registro de UTM',
+'Update tablascomunes.utm',
+'  set x = :P102_X',
+'     ,y = :P102_Y',
+'     ,CODIGO_TIPO_UTM = :P102_CODIGO_TIPO_UTM',
+'  where id = :P102_ID;',
+'--borramos el registro de GNSS',
+'Update tablascomunes.gnss',
+'  set x = :P102_X_1',
+'     ,y = :P102_Y_1',
+'  where id = :P102_ID_1;',
+'',
+''))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(6350412282237718)
+,p_internal_uid=>17057334908751207
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(8285323393676310)
+,p_process_sequence=>30
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Insertar_UTM_GNSS'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'--borramos el registro de UTM',
+'Insert into tablascomunes.utm(id, x, y, CODIGO_TIPO_UTM)',
+'  values(TABLASCOMUNES.S_UTM.NEXTVAL, :P102_X, :P102_Y, :P102_CODIGO_TIPO_UTM)',
+'  returning id into :P102_ID;',
+'--borramos el registro de GNSS',
+'Insert into tablascomunes.gnss(id, x, y)',
+'  values(TABLASCOMUNES.S_GNSS.NEXTVAL, :P102_X_1, :P102_Y_1)',
+'  returning id into :P102_ID_1;',
+'',
+':P102_ID_UTM := :P102_ID;',
+':P102_ID_GNSS := :P102_ID_1;',
+'',
+'SELECT NVL(MAX(NUMERO_ORDEN),0) + 1',
+'  into :P102_NUMERO_ORDEN',
+'  FROM TABLASCOMUNES.DIRECCION_ADMINISTRADO',
+'  WHERE CIF_NIF = :P102_CIF_NIF;',
+'',
+''))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(6350783744237718)
+,p_internal_uid=>17057477170751208
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(6351622764237721)
+,p_process_sequence=>40
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_imp.id(6336686597237693)
+,p_process_type=>'NATIVE_FORM_DML'
+,p_process_name=>'Process form Direccion_Administrado_Detail'
+,p_attribute_01=>'REGION_SOURCE'
+,p_attribute_05=>'Y'
+,p_attribute_06=>'Y'
+,p_attribute_08=>'Y'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>15123776541312619
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(6352025118237721)
+,p_process_sequence=>50
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_CLOSE_WINDOW'
+,p_process_name=>'Close Dialog'
+,p_attribute_02=>'Y'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when=>'CREATE,SAVE,DELETE'
+,p_process_when_type=>'REQUEST_IN_CONDITION'
+,p_internal_uid=>15124178895312619
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(6351243417237721)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_region_id=>wwv_flow_imp.id(6336686597237693)
+,p_process_type=>'NATIVE_FORM_INIT'
+,p_process_name=>'Initialize form Direccion_Administrado_Detail'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>15123397194312619
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(8285011369676307)
+,p_process_sequence=>20
+,p_process_point=>'BEFORE_HEADER'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Asignar_valores'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+':P102_ID := :P102_ID_UTM;',
+':P102_ID_1 := :P102_ID_GNSS;'))
+,p_process_clob_language=>'PLSQL'
+,p_internal_uid=>17057165146751205
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(6996611040568038)
+,p_process_sequence=>30
+,p_process_point=>'BEFORE_HEADER'
+,p_region_id=>wwv_flow_imp.id(6996410440568036)
+,p_process_type=>'NATIVE_FORM_INIT'
+,p_process_name=>'Initialize form UTM_Administrado_Detail'
+,p_internal_uid=>15768764817642936
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(6996646988568039)
+,p_process_sequence=>40
+,p_process_point=>'BEFORE_HEADER'
+,p_region_id=>wwv_flow_imp.id(6996518436568037)
+,p_process_type=>'NATIVE_FORM_INIT'
+,p_process_name=>'Initialize form GNSS_Administrado_Detail'
+,p_internal_uid=>15768800765642937
+);
+wwv_flow_imp.component_end;
+end;
+/
